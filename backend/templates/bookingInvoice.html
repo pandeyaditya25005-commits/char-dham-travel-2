@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Invoice - {{bookingId}}</title>
+  <style>
+    body { font-family: 'Segoe UI', Arial, sans-serif; margin: 0; padding: 40px; color: #1f2937; }
+    .invoice-box { max-width: 800px; margin: auto; border: 1px solid #e5e7eb; padding: 40px; }
+    .header { display: flex; justify-content: space-between; align-items: start; margin-bottom: 40px; }
+    .company h1 { margin: 0; color: #2563eb; font-size: 24px; }
+    .company p { margin: 4px 0; color: #6b7280; font-size: 13px; }
+    .invoice-title { text-align: right; }
+    .invoice-title h2 { margin: 0; font-size: 28px; color: #111827; }
+    .invoice-title .status { display: inline-block; padding: 4px 12px; border-radius: 12px; color: white; font-size: 12px; font-weight: 600; background: {{statusColor}}; margin-top: 8px; }
+    .divider { border: none; border-top: 2px solid #e5e7eb; margin: 24px 0; }
+    .details { display: flex; justify-content: space-between; margin-bottom: 32px; }
+    .details div { flex: 1; }
+    .details h4 { margin: 0 0 8px; color: #374151; font-size: 14px; text-transform: uppercase; letter-spacing: 1px; }
+    .details p { margin: 2px 0; color: #4b5563; font-size: 14px; }
+    table { width: 100%; border-collapse: collapse; margin: 24px 0; }
+    th { background: #f3f4f6; text-align: left; padding: 12px 16px; font-size: 13px; color: #374151; text-transform: uppercase; letter-spacing: 0.5px; }
+    td { padding: 12px 16px; border-bottom: 1px solid #e5e7eb; font-size: 14px; }
+    .totals { margin-top: 24px; text-align: right; }
+    .totals table { width: auto; margin-left: auto; }
+    .totals td { padding: 6px 16px; border: none; }
+    .totals .grand { font-size: 18px; font-weight: 700; color: #111827; }
+    .footer { margin-top: 48px; text-align: center; color: #9ca3af; font-size: 12px; }
+    .amount-words { margin-top: 24px; color: #4b5563; font-size: 14px; font-style: italic; }
+    @media print { body { padding: 0; } .invoice-box { border: none; } }
+  </style>
+</head>
+<body>
+  <div class="invoice-box">
+    <div class="header">
+      <div class="company">
+        <h1>Char Dham Travel</h1>
+        <p>Yamunotri, Gangotri, Kedarnath, Badrinath</p>
+        <p>Uttarakhand, India</p>
+        <p>Email: info@chardhamtravel.com</p>
+      </div>
+      <div class="invoice-title">
+        <h2>INVOICE</h2>
+        <div class="status">{{status}}</div>
+        <p style="margin-top: 8px; font-size: 13px; color: #6b7280;">{{bookingDate}}</p>
+      </div>
+    </div>
+
+    <hr class="divider">
+
+    <div class="details">
+      <div>
+        <h4>Invoice To</h4>
+        <p><strong>{{customerName}}</strong></p>
+        <p>{{customerEmail}}</p>
+        <p>{{customerPhone}}</p>
+      </div>
+      <div>
+        <h4>Booking Details</h4>
+        <p><strong>ID:</strong> {{bookingId}}</p>
+        <p><strong>Type:</strong> {{type}}</p>
+        <p><strong>Travel:</strong> {{travelDate}} - {{endDate}}</p>
+        <p><strong>Persons:</strong> {{persons}}</p>
+      </div>
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Description</th>
+          <th>Quantity</th>
+          <th>Rate</th>
+          <th>Amount</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{{itemRows}}}
+      </tbody>
+    </table>
+
+    <div class="totals">
+      <table>
+        <tr><td>Subtotal</td><td>{{subtotal}}</td></tr>
+        <tr><td style="border-top: 2px solid #374151;" class="grand">Total</td><td style="border-top: 2px solid #374151;" class="grand">{{total}}</td></tr>
+      </table>
+    </div>
+
+    <div class="amount-words">
+      <strong>Amount in words:</strong> {{amountInWords}}
+    </div>
+
+    <hr class="divider">
+
+    <div class="footer">
+      <p>This is a computer-generated invoice. No signature is required.</p>
+      <p>Char Dham Travel &bull; Thank you for your booking!</p>
+    </div>
+  </div>
+</body>
+</html>

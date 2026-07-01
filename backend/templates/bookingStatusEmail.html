@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8"></head>
+<body style="font-family: Arial; padding: 20px;">
+  <h2>Booking Status Update</h2>
+  <p>Dear {{customerName}},</p>
+  <p>Your booking status has been updated.</p>
+  <table style="border-collapse: collapse; width: 100%; max-width: 500px;">
+    <tr><td style="padding: 8px; border-bottom: 1px solid #e5e7eb;"><strong>Booking ID:</strong></td><td style="padding: 8px; border-bottom: 1px solid #e5e7eb;">{{bookingId}}</td></tr>
+    <tr><td style="padding: 8px; border-bottom: 1px solid #e5e7eb;"><strong>Type:</strong></td><td style="padding: 8px; border-bottom: 1px solid #e5e7eb;">{{type}}</td></tr>
+    <tr><td style="padding: 8px; border-bottom: 1px solid #e5e7eb;"><strong>Travel Date:</strong></td><td style="padding: 8px; border-bottom: 1px solid #e5e7eb;">{{travelDate}}</td></tr>
+    <tr><td style="padding: 8px; border-bottom: 1px solid #e5e7eb;"><strong>New Status:</strong></td><td style="padding: 8px; border-bottom: 1px solid #e5e7eb;"><strong>{{status}}</strong></td></tr>
+    <tr><td style="padding: 8px;"><strong>Total Amount:</strong></td><td style="padding: 8px;">₹{{amount}}</td></tr>
+  </table>
+  <p>{{message}}</p>
+  <p>If you have any questions, please contact our support team.</p>
+  <hr>
+  <p style="color: #666;">Char Dham Travel</p>
+</body>
+</html>
