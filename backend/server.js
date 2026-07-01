@@ -17,6 +17,11 @@ let server;
 
 const startServer = async () => {
   try {
+    console.log("MONGO_URI =", process.env.MONGO_URI);
+
+
+
+
     await connectDB();
     configureCloudinary();
 
