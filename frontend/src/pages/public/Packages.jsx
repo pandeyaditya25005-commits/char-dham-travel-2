@@ -29,9 +29,9 @@ const Packages = () => {
 
     getAllPackages(params)
       .then((data) => {
-        setPackages(data.packages);
-        setTotal(data.total);
-      })
+    setPackages(data?.packages || []);
+    setTotal(data?.total || 0);
+})
       .catch(() => {})
       .finally(() => setLoading(false));
   };
