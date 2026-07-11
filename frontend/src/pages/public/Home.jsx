@@ -34,7 +34,9 @@ const Home = () => {
 
   useEffect(() => {
     getAllPackages({ limit: 3, sort: '-totalBookings' })
-      .then((data) => setPackages(data.packages))
+      .then((data) => {
+  setPackages(data?.packages || []);
+})
       .catch(() => {})
       .finally(() => setLoading(false));
   }, []);
