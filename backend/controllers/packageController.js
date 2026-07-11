@@ -102,8 +102,7 @@ const seedPackages = asyncHandler(async (req, res) => {
     message: "Packages inserted successfully"
   });
 });
-Image
-Image
+
 
 module.exports = {
   getAllPackages,
