@@ -43,5 +43,70 @@ const getPackageBySlug = asyncHandler(async (req, res) => {
   }
   res.json({ success: true, package: pkg });
 });
+const seedPackages = asyncHandler(async (req, res) => {
+  await TourPackage.deleteMany();
 
-module.exports = { getAllPackages, getPackageBySlug };
+  await TourPackage.insertMany([
+    {
+      title: "Char Dham Yatra",
+      slug: "char-dham-yatra",
+      description: "Complete Char Dham pilgrimage.",
+      duration: 12,
+      price: 35000,
+      maxGroupSize: 20,
+      difficulty: "moderate",
+      includes: ["Hotel", "Meals", "Transport"],
+      excludes: ["Personal Expenses"],
+      itinerary: [
+        {
+          day: 1,
+          title: "Arrival",
+          description: "Arrival at Haridwar"
+        }
+      ],
+      images: [
+        {
+          url: "https://images.unsplash.com/photo-1506744038136-46273834b3fb",
+          publicId: "char1"
+        }
+      ]
+    },
+    {
+      title: "Kedarnath Tour",
+      slug: "kedarnath-tour",
+      description: "Holy Kedarnath Temple.",
+      duration: 5,
+      price: 18000,
+      maxGroupSize: 15,
+      difficulty: "challenging",
+      includes: ["Hotel", "Transport"],
+      excludes: ["Helicopter"],
+      itinerary: [
+        {
+          day: 1,
+          title: "Start",
+          description: "Journey starts"
+        }
+      ],
+      images: [
+        {
+          url: "https://images.unsplash.com/photo-1469474968028-56623f02e42e",
+          publicId: "kedar1"
+        }
+      ]
+    }
+  ]);
+
+  res.json({
+    success: true,
+    message: "Packages inserted successfully"
+  });
+});
+Image
+Image
+
+module.exports = {
+  getAllPackages,
+  getPackageBySlug,
+  seedPackages
+};
